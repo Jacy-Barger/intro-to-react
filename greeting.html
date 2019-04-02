@@ -26,17 +26,29 @@
        );
 
        class Submit extends React.Component {
+         constructor(props) {
+           super(props);
+           this.state = {
+             type: "Submit Button"
+           }
+         }
          render() {
            return (
             <div>
-             <button>Submit</button>
+            <h5>{this.state.type}</h5>
+             <button>{this.props.message}</button>
+             <p>Date: {this.props.date.toLocaleDateString()}</p>
             </div>
           );
          }
        }
 
+       Submit.defaultProps = {
+         date: new Date()
+       }
+
        ReactDOM.render(
-         <Submit />, document.getElementById('submitbutton')
+         <Submit message="Please Press Button!"/>, document.getElementById('submitbutton')
        );
 
    </script>
